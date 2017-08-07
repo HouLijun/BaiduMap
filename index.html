@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>百度地图API</title>
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=A1LU7iHS0avqQwPLAxbhKn0UYSQCuRVH"></script>
+    <script src="js/jquery.baiduMap.min.js"></script>
+</head>
+
+<body>
+<div id="container" style="width:800px;height: 500px;"></div>
+<script type="text/javascript">
+    var points = [{
+        id: 1,
+        lng: 118.096525,
+        lat: 24.462602,
+        title: "厦门中山公园",
+        content: ["地址：北京市新建宫门路19号", "电话：010-62881144"]
+    }];
+
+    new BaiduMap({
+        id: "container",
+        level: 16,
+        type: ["地图", "卫星"],
+        width: 320,
+        height: 70,
+        titleClass: "title",
+        contentClass: "content",
+//        mapStyle: "light",//地图样式
+        centerPoint: { // 地图中心点经纬度
+            lng: 118.096525,
+            lat: 24.462602,
+        },
+        index: 0,
+        points: points,
+        callback: function () {
+            console.log("坐标点击回调函数")
+        }
+    });
+</script>
+</body>
+</html>
